@@ -1,0 +1,1808 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISMAIL G EXTRA — Official Studio News</title>
+<meta name="description" content="Official Studio News, extra project announcements, posters, and upcoming releases from ISMAIL G EXTRA.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ISMAIL G EXTRA — Official Studio News">
+<meta property="og:description" content="Official Studio News, extra project announcements, posters, and upcoming releases.">
+<meta property="og:image" content="MAZE ORIGIN.png">
+
+<style>
+:root{
+  --bg:#07090d;
+  --bg2:#0b0f16;
+  --panel:rgba(16,20,31,.74);
+  --panel2:rgba(255,255,255,.05);
+  --line:rgba(255,255,255,.09);
+  --text:#f5f7fb;
+  --muted:#a7b0c0;
+  --red:#ff3b4d;
+  --blue:#4d7cff;
+  --gold:#f0c76e;
+  --good:#36d399;
+  --shadow:0 18px 60px rgba(0,0,0,.45);
+  --radius:22px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  min-height:100vh;
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(77,124,255,.15), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(255,59,77,.16), transparent 24%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,.04), transparent 35%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  overflow-x:hidden;
+}
+
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  inset:auto;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.18;
+  pointer-events:none;
+  z-index:0;
+}
+body::before{
+  left:-140px;
+  top:-120px;
+  background:rgba(77,124,255,.85);
+  animation:floatGlow 12s ease-in-out infinite;
+}
+body::after{
+  right:-160px;
+  bottom:-140px;
+  background:rgba(255,59,77,.8);
+  animation:floatGlow 14s ease-in-out infinite reverse;
+}
+@keyframes floatGlow{
+  0%,100%{transform:translate3d(0,0,0) scale(1);}
+  50%{transform:translate3d(40px,-20px,0) scale(1.08);}
+}
+
+a{color:inherit;text-decoration:none}
+button{
+  font:inherit;
+}
+
+.hidden{display:none !important;}
+.wrap{
+  position:relative;
+  z-index:1;
+  width:min(1200px, calc(100% - 32px));
+  margin:0 auto;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* SPLASH */
+.splash{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 30%),
+    linear-gradient(180deg, rgba(8,10,16,.96), rgba(4,6,10,.98));
+  backdrop-filter:blur(8px);
+  z-index:1000;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  transition:opacity .5s ease, transform .5s ease;
+}
+.splash.dismiss{
+  opacity:0;
+  transform:scale(1.02);
+  pointer-events:none;
+}
+.splash-card{
+  width:min(560px, 100%);
+  padding:28px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.splash-mark{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  color:var(--muted);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:12px;
+  margin-bottom:18px;
+}
+.splash-title{
+  font-size:clamp(2rem, 5vw, 3.8rem);
+  line-height:1;
+  margin-bottom:10px;
+}
+.splash-title .accent{
+  background:linear-gradient(90deg, var(--red), var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.splash-text{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.65;
+  max-width:44ch;
+  margin:0 auto 20px;
+}
+.splash-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.splash-btn{
+  border:none;
+  padding:14px 18px;
+  border-radius:14px;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(90deg, var(--red), var(--blue));
+  box-shadow:0 12px 30px rgba(77,124,255,.25);
+  transition:transform .25s ease, filter .25s ease;
+}
+.splash-btn:hover{transform:translateY(-2px);filter:saturate(1.1)}
+.splash-note{
+  margin-top:14px;
+  color:#90a0ba;
+  font-size:12px;
+}
+
+/* TOP BAR */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(18px);
+  background:rgba(7,9,13,.72);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.topbar-inner{
+  width:min(1200px, calc(100% - 24px));
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-height:76px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:max-content;
+}
+.brand-mark{
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  color:white;
+  background:linear-gradient(135deg, var(--red), var(--blue));
+  box-shadow:0 10px 25px rgba(255,59,77,.20);
+}
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.15;
+}
+.brand-text strong{
+  letter-spacing:.06em;
+  font-size:14px;
+}
+.brand-text span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:1;
+  overflow:auto;
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none;}
+.nav a{
+  color:var(--muted);
+  padding:10px 12px;
+  border-radius:999px;
+  transition:background .25s ease, color .25s ease, transform .25s ease;
+  white-space:nowrap;
+  font-size:14px;
+}
+.nav a:hover{
+  color:white;
+  background:rgba(255,255,255,.06);
+  transform:translateY(-1px);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:max-content;
+}
+.lang-toggle{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+}
+.lang-btn{
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .25s ease, color .25s ease;
+  font-weight:700;
+}
+.lang-btn.active{
+  color:white;
+  background:linear-gradient(90deg, rgba(255,59,77,.95), rgba(77,124,255,.95));
+}
+.sound-pill{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+  white-space:nowrap;
+}
+
+/* HERO */
+.hero{
+  padding:34px 0 18px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .95fr;
+  gap:22px;
+  align-items:stretch;
+}
+.hero-copy,
+.hero-visual,
+.section-card,
+.project-card,
+.gallery-card,
+.connect-card,
+.about-card{
+  border:1px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+  backdrop-filter:blur(18px);
+  box-shadow:var(--shadow);
+}
+.hero-copy{
+  border-radius:30px;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-copy::after{
+  content:"";
+  position:absolute;
+  inset:auto -40px -60px auto;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(77,124,255,.18), transparent 65%);
+  pointer-events:none;
+}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  color:#d9e0ef;
+  border:1px solid rgba(255,255,255,.08);
+  font-size:12px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.hero h1{
+  font-size:clamp(2.35rem, 5vw, 4.8rem);
+  line-height:1;
+  margin-bottom:14px;
+}
+.hero p{
+  color:#b6bfd0;
+  line-height:1.75;
+  font-size:16px;
+  max-width:62ch;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:24px;
+}
+.primary-btn,
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:48px;
+  padding:0 18px;
+  border-radius:14px;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .25s ease, opacity .25s ease, box-shadow .25s ease;
+  font-weight:700;
+}
+.primary-btn{
+  color:white;
+  background:linear-gradient(90deg, var(--red), var(--blue));
+  box-shadow:0 12px 30px rgba(77,124,255,.20);
+}
+.secondary-btn{
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.10);
+  color:var(--text);
+}
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-2px);
+}
+.hero-tags{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:24px;
+}
+.hero-tags li{
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.07);
+  color:#dbe4f3;
+  font-size:13px;
+}
+
+.hero-visual{
+  border-radius:30px;
+  padding:18px;
+  display:grid;
+  gap:16px;
+  align-content:space-between;
+  position:relative;
+  overflow:hidden;
+}
+.visual-stack{
+  display:grid;
+  gap:14px;
+}
+.poster-frame{
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  position:relative;
+  min-height:420px;
+}
+.poster-frame img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  aspect-ratio: 4 / 5;
+}
+.poster-fallback{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,59,77,.12), transparent 32%),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.35));
+  color:#e8edf7;
+}
+.poster-fallback strong{
+  display:block;
+  font-size:24px;
+  margin-bottom:8px;
+}
+.poster-fallback span{
+  color:#c3cedf;
+  font-size:13px;
+  line-height:1.5;
+}
+.poster-pill{
+  position:absolute;
+  left:16px;
+  top:16px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(7,9,13,.82);
+  border:1px solid rgba(255,255,255,.10);
+  font-size:12px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.hero-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.stat-box{
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+}
+.stat-box strong{
+  display:block;
+  font-size:24px;
+  margin-bottom:4px;
+}
+.stat-box span{
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* SECTIONS */
+.section{
+  padding:20px 0;
+}
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.section-head h2{
+  font-size:clamp(1.4rem, 3vw, 2.2rem);
+}
+.section-head p{
+  color:var(--muted);
+  line-height:1.6;
+  max-width:60ch;
+  font-size:14px;
+}
+
+.section-card{
+  border-radius:28px;
+  padding:22px;
+}
+
+.announcement-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.news-card{
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  min-height:210px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+.news-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 60%, rgba(0,0,0,.88) 100%);
+  z-index:0;
+}
+.news-content{
+  position:relative;
+  z-index:1;
+}
+.news-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.28);
+  border:1px solid rgba(255,255,255,.12);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.news-card h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+.news-card p{
+  color:#dde5f4;
+  line-height:1.6;
+  font-size:14px;
+}
+.news-card .mini-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+.mini-meta span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:12px;
+  color:#f0f3fb;
+}
+
+/* PROJECT REEL */
+.project-reel{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:minmax(300px, 340px);
+  gap:16px;
+  overflow-x:auto;
+  padding-bottom:8px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.18) transparent;
+}
+.project-reel::-webkit-scrollbar{height:10px}
+.project-reel::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.18);
+  border-radius:999px;
+}
+.project-card{
+  scroll-snap-align:start;
+  border-radius:26px;
+  overflow:hidden;
+  transition:transform .25s ease, border-color .25s ease;
+}
+.project-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(255,255,255,.14);
+}
+.project-media{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(255,255,255,.08), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.45));
+}
+.project-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.01);
+  transition:transform .45s ease, opacity .35s ease;
+}
+.project-card:hover .project-media img{
+  transform:scale(1.06);
+}
+.project-overlay{
+  position:absolute;
+  inset:auto 0 0 0;
+  padding:18px;
+  background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.52) 20%, rgba(0,0,0,.92) 100%);
+}
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:10px;
+}
+.badge{
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.09);
+}
+.badge.red{
+  background:rgba(255,59,77,.18);
+  border-color:rgba(255,59,77,.28);
+}
+.badge.blue{
+  background:rgba(77,124,255,.18);
+  border-color:rgba(77,124,255,.28);
+}
+.badge.green{
+  background:rgba(54,211,153,.16);
+  border-color:rgba(54,211,153,.25);
+}
+.project-body{
+  padding:18px;
+}
+.project-body h3{
+  font-size:22px;
+  margin-bottom:10px;
+}
+.project-body p{
+  color:#c7d0df;
+  line-height:1.7;
+  font-size:14px;
+  min-height:68px;
+}
+.project-meta{
+  display:grid;
+  gap:10px;
+  margin:16px 0;
+  grid-template-columns:repeat(2,1fr);
+}
+.meta-box{
+  padding:12px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+}
+.meta-box small{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:5px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+}
+.meta-box strong{
+  font-size:14px;
+}
+.project-btn{
+  width:100%;
+  border:none;
+  cursor:pointer;
+  padding:14px 16px;
+  border-radius:14px;
+  color:white;
+  font-weight:700;
+  background:linear-gradient(90deg, rgba(255,59,77,.95), rgba(77,124,255,.95));
+  transition:transform .25s ease, opacity .25s ease;
+}
+.project-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+.gallery-card{
+  border-radius:24px;
+  overflow:hidden;
+}
+.gallery-card img{
+  width:100%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  display:block;
+}
+.gallery-caption{
+  padding:16px;
+}
+.gallery-caption h3{
+  margin-bottom:6px;
+}
+.gallery-caption p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* CONNECT */
+.connect-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:16px;
+}
+.connect-card,
+.about-card{
+  border-radius:26px;
+  padding:24px;
+}
+.connect-card h3,
+.about-card h3{
+  margin-bottom:10px;
+  font-size:24px;
+}
+.connect-card p,
+.about-card p{
+  color:#c4ccdb;
+  line-height:1.7;
+  font-size:14px;
+}
+.socials{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:18px;
+}
+.social{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.05);
+  transition:transform .25s ease, border-color .25s ease, background .25s ease;
+}
+.social:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.08);
+}
+.social.discord{border-color:rgba(114,137,218,.32)}
+.social.instagram{border-color:rgba(225,48,108,.32)}
+.social .dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+}
+.social.discord .dot{background:#7289da}
+.social.instagram .dot{background:linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)}
+.social span{
+  font-weight:700;
+}
+.about-list{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  margin-top:18px;
+}
+.about-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:#d8e0ed;
+  line-height:1.5;
+}
+.about-list li::before{
+  content:"•";
+  color:var(--red);
+  font-size:20px;
+  line-height:1;
+  margin-top:-1px;
+}
+
+/* FOOTER */
+.footer{
+  padding:30px 0 50px;
+  color:#8490a7;
+  text-align:center;
+  font-size:13px;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(3,5,9,.78);
+  backdrop-filter:blur(14px);
+  z-index:2000;
+  display:grid;
+  place-items:center;
+  padding:22px;
+}
+.modal-panel{
+  width:min(980px, 100%);
+  max-height:min(90vh, 900px);
+  overflow:auto;
+  border-radius:28px;
+  background:linear-gradient(180deg, rgba(16,20,31,.96), rgba(9,12,18,.98));
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:var(--shadow);
+}
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:18px 18px 0;
+}
+.close-btn{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:white;
+  cursor:pointer;
+}
+.modal-body{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap:18px;
+  padding:18px;
+}
+.modal-poster{
+  border-radius:24px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+}
+.modal-poster img{
+  width:100%;
+  display:block;
+  aspect-ratio:4/5;
+  object-fit:cover;
+}
+.modal-copy h3{
+  font-size:clamp(1.8rem, 3vw, 2.8rem);
+  margin-bottom:10px;
+}
+.modal-copy .tagline{
+  color:#d9e2f2;
+  line-height:1.7;
+  margin-bottom:16px;
+}
+.detail-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin:16px 0 18px;
+}
+.detail{
+  border-radius:18px;
+  padding:14px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.04);
+}
+.detail small{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  color:var(--muted);
+  margin-bottom:6px;
+}
+.detail strong{
+  font-size:14px;
+}
+.modal-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.modal-actions a,
+.modal-actions button{
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:white;
+  cursor:pointer;
+  font-weight:700;
+}
+.modal-actions .primary{
+  background:linear-gradient(90deg, var(--red), var(--blue));
+  border-color:transparent;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1080px){
+  .hero-grid,
+  .connect-grid,
+  .modal-body{
+    grid-template-columns:1fr;
+  }
+  .announcement-grid,
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+  .hero-copy{
+    order:2;
+  }
+  .hero-visual{
+    order:1;
+  }
+}
+@media (max-width: 720px){
+  .topbar-inner{
+    min-height:66px;
+  }
+  .brand-text span{
+    display:none;
+  }
+  .section-head{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .hero-copy,
+  .hero-visual,
+  .section-card,
+  .connect-card,
+  .about-card{
+    border-radius:22px;
+  }
+  .hero-copy{
+    padding:22px;
+  }
+  .hero h1{
+    font-size:clamp(2rem, 10vw, 3.2rem);
+  }
+  .project-reel{
+    grid-auto-columns:minmax(82vw, 82vw);
+  }
+  .detail-grid{
+    grid-template-columns:1fr;
+  }
+  .modal-body{
+    padding-top:6px;
+  }
+}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
+::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.18);
+  border-radius:999px;
+}
+::selection{
+  background:rgba(255,59,77,.32);
+  color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <div class="splash-card">
+    <div class="splash-mark">ISMAIL G EXTRA • Official Site</div>
+    <h1 class="splash-title" id="splashTitle">Official <span class="accent">Studio News</span></h1>
+    <p class="splash-text" id="splashText">
+      Extra project announcements, posters, and upcoming reveals in one place.
+    </p>
+    <div class="splash-actions">
+      <button class="splash-btn" id="enterSiteBtn">Enter Site</button>
+    </div>
+    <div class="splash-note" id="splashNote">No music. Opening sound only.</div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="topbar-inner wrap">
+    <a class="brand" href="#home" aria-label="ISMAIL G EXTRA Home">
+      <div class="brand-mark">IG</div>
+      <div class="brand-text">
+        <strong>ISMAIL G EXTRA</strong>
+        <span id="brandSub">Official Studio News</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home" data-i18n="navHome">Home</a>
+      <a href="#news" data-i18n="navNews">Announcements</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#gallery" data-i18n="navGallery">Gallery</a>
+      <a href="#connect" data-i18n="navConnect">Connect</a>
+    </nav>
+
+    <div class="actions">
+      <div class="lang-toggle" aria-label="Language switch">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="tr">TR</button>
+      </div>
+      <div class="sound-pill" id="soundPill">Sound effect ready</div>
+    </div>
+  </div>
+</header>
+
+<main id="home" class="wrap">
+
+  <section class="hero reveal" data-reveal>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="kicker" data-i18n="heroKicker">Official Studio News</div>
+        <h1 data-i18n="heroTitle">A clean home for extra content and upcoming projects.</h1>
+        <p data-i18n="heroText">
+          This is the official announcement page for ISMAIL G EXTRA. Posters, updates, progress notes, and future reveals will live here.
+        </p>
+
+        <div class="hero-actions">
+          <a class="primary-btn" href="#projects" data-i18n="heroExplore">Explore</a>
+          <a class="secondary-btn" href="#connect" data-i18n="heroConnect">Connect</a>
+        </div>
+
+        <ul class="hero-tags">
+          <li data-i18n="tag1">Extra Updates</li>
+          <li data-i18n="tag2">Project Reveals</li>
+          <li data-i18n="tag3">Poster Drops</li>
+          <li data-i18n="tag4">Official Announcements</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-stack">
+          <div class="poster-frame">
+            <div class="poster-pill" data-i18n="heroSpotlight">Featured Spotlight</div>
+            <img id="heroPoster" src="İyiyim serisi.png" alt="Featured project poster">
+            <div class="poster-fallback hidden" id="heroFallback">
+              <div>
+                <strong>ISMAIL G EXTRA</strong>
+                <span data-i18n="heroFallbackText">Posters and project reveals appear here.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-box">
+              <strong>2</strong>
+              <span data-i18n="statProjects">Upcoming Projects</span>
+            </div>
+            <div class="stat-box">
+              <strong>EN / TR</strong>
+              <span data-i18n="statLang">Dual Language Site</span>
+            </div>
+            <div class="stat-box">
+              <strong>100%</strong>
+              <span data-i18n="statOfficial">Official Studio Page</span>
+            </div>
+            <div class="stat-box">
+              <strong>2026</strong>
+              <span data-i18n="statYear">Official Era</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="section reveal" data-reveal>
+    <div class="section-head">
+      <div>
+        <h2 data-i18n="newsTitle">Latest Announcements</h2>
+        <p data-i18n="newsSub">Short updates, status notes, and new project reveals from the studio.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="announcement-grid" id="announcementGrid"></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section reveal" data-reveal>
+    <div class="section-head">
+      <div>
+        <h2 data-i18n="projectsTitle">Upcoming Projects</h2>
+        <p data-i18n="projectsSub">A studio-style showcase for posters, genres, status, release info, and quick details.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="project-reel" id="projectReel"></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section reveal" data-reveal>
+    <div class="section-head">
+      <div>
+        <h2 data-i18n="galleryTitle">Gallery</h2>
+        <p data-i18n="gallerySub">Your official posters, featured visuals, and future artwork.</p>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="gallery-grid">
+        <article class="gallery-card">
+          <img src="İyiyim serisi.png" alt="I'm Fine / Ben İyiyim poster">
+          <div class="gallery-caption">
+            <h3 data-i18n="galleryOneTitle">Ben İyiyim</h3>
+            <p data-i18n="galleryOneText">Thriller / Meme project poster and promotional visual.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img src="LABİRENT KÖKENİ.png" alt="Maze Origin / Labirentin Kökeni poster">
+          <div class="gallery-caption">
+            <h3 data-i18n="galleryTwoTitle">Labirentin Kökeni</h3>
+            <p data-i18n="galleryTwoText">Thriller / Puzzle project poster and key visual.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="connect" class="section reveal" data-reveal>
+    <div class="section-head">
+      <div>
+        <h2 data-i18n="connectTitle">Connect</h2>
+        <p data-i18n="connectSub">Follow the official channels for announcements, progress, and extra content.</p>
+      </div>
+    </div>
+
+    <div class="connect-grid">
+      <div class="connect-card">
+        <h3 data-i18n="connectCardTitle">Official Links</h3>
+        <p data-i18n="connectCardText">
+          Keep the studio connected through the official community and social pages.
+        </p>
+
+        <div class="socials">
+          <a class="social discord" href="https://discord.gg/YW7n6nV28v" target="_blank" rel="noopener noreferrer">
+            <span class="dot"></span>
+            <span>Discord</span>
+          </a>
+          <a class="social instagram" href="https://instagram.com/ismailgresmi" target="_blank" rel="noopener noreferrer">
+            <span class="dot"></span>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <h3 data-i18n="aboutTitle">About This Site</h3>
+        <p data-i18n="aboutText">
+          ISMAIL G EXTRA is the official home for extra project announcements, poster reveals, and future updates. The page is built as a clean, studio-like brand hub.
+        </p>
+
+        <ul class="about-list">
+          <li data-i18n="about1">Single-file website for easy GitHub Pages publishing.</li>
+          <li data-i18n="about2">English / Turkish language switch.</li>
+          <li data-i18n="about3">Professional visuals and smooth motion design.</li>
+          <li data-i18n="about4">No background music, only a short opening sound effect.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 ISMAIL G EXTRA
+  </footer>
+</main>
+
+<div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-panel">
+    <div class="modal-top">
+      <div>
+        <div class="kicker" style="margin-bottom:8px" id="modalKicker">Project Details</div>
+      </div>
+      <button class="close-btn" id="closeModalBtn" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-poster">
+        <img id="modalPoster" src="" alt="">
+      </div>
+      <div class="modal-copy">
+        <h3 id="modalTitle">Title</h3>
+        <p class="tagline" id="modalDescription"></p>
+
+        <div class="detail-grid">
+          <div class="detail">
+            <small data-i18n="detailStatus">Status</small>
+            <strong id="modalStatus"></strong>
+          </div>
+          <div class="detail">
+            <small data-i18n="detailGenre">Genre</small>
+            <strong id="modalGenre"></strong>
+          </div>
+          <div class="detail">
+            <small data-i18n="detailRelease">Release</small>
+            <strong id="modalRelease"></strong>
+          </div>
+          <div class="detail">
+            <small data-i18n="detailAge">Age Rating</small>
+            <strong id="modalAge"></strong>
+          </div>
+          <div class="detail">
+            <small data-i18n="detailCreator">Creator</small>
+            <strong>ISMAIL G</strong>
+          </div>
+          <div class="detail">
+            <small data-i18n="detailStudio">Studio</small>
+            <strong>ISMG YAPIM</strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="primary" id="modalActionBtn" type="button" data-i18n="modalAction">Close details</button>
+          <a href="#projects" data-i18n="modalBrowse">Browse projects</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const projects = [
+  {
+    id: "im-fine",
+    poster: "İyiyim serisi.png",
+    title: { en: "I'm Fine", tr: "Ben İyiyim" },
+    status: { en: "Coming Soon", tr: "Yakında" },
+    genre: { en: "Thriller / Meme", tr: "Gerilim / Meme" },
+    release: { en: "TBA", tr: "Tarih belirsiz" },
+    age: "15+",
+    cardTag: { en: "Featured", tr: "Öne Çıkan" },
+    description: {
+      en: "A thriller-meme series with an ever-growing power curve, changing atmosphere, and hidden details in every episode and season.",
+      tr: "Her bölüm ve sezonda güçlerin arttığı, atmosferin değiştiği ve gizli detaylarla dolu bir gerilim / meme serisi."
+    },
+    detail: {
+      en: "Every episode follows the same recurring line, but the power level rises, the atmosphere shifts, and hidden clues become denser as the series continues.",
+      tr: "Her bölüm aynı tekrar eden cümleyle ilerler; ancak güçler artar, atmosfer değişir ve gizli detaylar zamanla yoğunlaşır."
+    }
+  },
+  {
+    id: "maze-origin",
+    poster: "LABİRENT KÖKENİ.png",
+    title: { en: "Maze Origin", tr: "Labirentin Kökeni" },
+    status: { en: "Coming Soon", tr: "Yakında" },
+    genre: { en: "Thriller / Puzzle", tr: "Gerilim / Bulmaca" },
+    release: { en: "2026", tr: "2026" },
+    age: "10+",
+    cardTag: { en: "New Project", tr: "Yeni Proje" },
+    description: {
+      en: "Cenk must find the key, escape the maze, and survive every level. The enemy gets faster, the hero gets faster, and the maze grows more dangerous.",
+      tr: "Cenk tek başına labirentten çıkış yolu arar. Her levelde anahtarı bulmalı, düşmandan kaçmalı ve zorluk artarken hayatta kalmalıdır."
+    },
+    detail: {
+      en: "Each level increases the enemy speed, the hero speed, and the size of the maze. The progression is built around puzzle-solving, action, and mystery.",
+      tr: "Her levelde düşman hızı, ana karakter hızı ve labirent boyutu artar. Oyun yapısı bulmaca, aksiyon ve gizem üzerine kuruludur."
+    }
+  }
+];
+
+const announcements = [
+  {
+    title: { en: "Official Studio News", tr: "Resmi Stüdyo Duyuruları" },
+    text: {
+      en: "This page is the central hub for extra project updates, visual reveals, and release notes.",
+      tr: "Bu sayfa ekstra proje güncellemeleri, görsel paylaşımlar ve duyurular için resmi merkezdir."
+    },
+    accent: "red"
+  },
+  {
+    title: { en: "I'm Fine", tr: "Ben İyiyim" },
+    text: {
+      en: "A meme-driven thriller project with hidden details and a constantly rising atmosphere.",
+      tr: "Gizli detaylar, değişen atmosfer ve yükselen güç dengesiyle ilerleyen meme tabanlı gerilim projesi."
+    },
+    accent: "blue"
+  },
+  {
+    title: { en: "Maze Origin", tr: "Labirentin Kökeni" },
+    text: {
+      en: "A puzzle-thriller project where every level gets harder and the maze keeps evolving.",
+      tr: "Her levelin daha zor olduğu ve labirentin sürekli büyüdüğü bir bulmaca-gerilim projesi."
+    },
+    accent: "green"
+  }
+];
+
+const i18n = {
+  en: {
+    navHome: "Home",
+    navNews: "Announcements",
+    navProjects: "Projects",
+    navGallery: "Gallery",
+    navConnect: "Connect",
+    heroKicker: "Official Studio News",
+    heroTitle: "A clean home for extra content and upcoming projects.",
+    heroText: "This is the official announcement page for ISMAIL G EXTRA. Posters, updates, progress notes, and future reveals will live here.",
+    heroExplore: "Explore",
+    heroConnect: "Connect",
+    tag1: "Extra Updates",
+    tag2: "Project Reveals",
+    tag3: "Poster Drops",
+    tag4: "Official Announcements",
+    heroSpotlight: "Featured Spotlight",
+    heroFallbackText: "Posters and project reveals appear here.",
+    statProjects: "Upcoming Projects",
+    statLang: "Dual Language Site",
+    statOfficial: "Official Studio Page",
+    statYear: "Official Era",
+    newsTitle: "Latest Announcements",
+    newsSub: "Short updates, status notes, and new project reveals from the studio.",
+    projectsTitle: "Upcoming Projects",
+    projectsSub: "A studio-style showcase for posters, genres, status, release info, and quick details.",
+    galleryTitle: "Gallery",
+    gallerySub: "Your official posters, featured visuals, and future artwork.",
+    galleryOneTitle: "I'm Fine",
+    galleryOneText: "Thriller / Meme project poster and promotional visual.",
+    galleryTwoTitle: "Maze Origin",
+    galleryTwoText: "Thriller / Puzzle project poster and key visual.",
+    connectTitle: "Connect",
+    connectSub: "Follow the official channels for announcements, progress, and extra content.",
+    connectCardTitle: "Official Links",
+    connectCardText: "Keep the studio connected through the official community and social pages.",
+    aboutTitle: "About This Site",
+    aboutText: "ISMAIL G EXTRA is the official home for extra project announcements, poster reveals, and future updates. The page is built as a clean, studio-like brand hub.",
+    about1: "Single-file website for easy GitHub Pages publishing.",
+    about2: "English / Turkish language switch.",
+    about3: "Professional visuals and smooth motion design.",
+    about4: "No background music, only a short opening sound effect.",
+    detailStatus: "Status",
+    detailGenre: "Genre",
+    detailRelease: "Release",
+    detailAge: "Age Rating",
+    detailCreator: "Creator",
+    detailStudio: "Studio",
+    modalAction: "Close details",
+    modalBrowse: "Browse projects",
+    splashTitle: "Official Studio News",
+    splashText: "Extra project announcements, posters, and upcoming reveals in one place.",
+    splashNote: "No music. Opening sound only.",
+    enterSite: "Enter Site",
+    soundReady: "Sound effect ready"
+  },
+  tr: {
+    navHome: "Ana Sayfa",
+    navNews: "Duyurular",
+    navProjects: "Projeler",
+    navGallery: "Galeri",
+    navConnect: "Bağlantı",
+    heroKicker: "Resmi Stüdyo Duyuruları",
+    heroTitle: "Ek içerikler ve yaklaşan projeler için temiz bir merkez.",
+    heroText: "Burası ISMAIL G EXTRA için resmi duyuru sayfasıdır. Posterler, güncellemeler, ilerleme notları ve gelecekteki projeler burada yer alır.",
+    heroExplore: "Keşfet",
+    heroConnect: "Bağlan",
+    tag1: "Ek Güncellemeler",
+    tag2: "Proje Tanıtımları",
+    tag3: "Poster Paylaşımları",
+    tag4: "Resmi Duyurular",
+    heroSpotlight: "Öne Çıkan",
+    heroFallbackText: "Posterler ve proje tanıtımları burada görünür.",
+    statProjects: "Yaklaşan Proje",
+    statLang: "Çift Dilli Site",
+    statOfficial: "Resmi Stüdyo Sayfası",
+    statYear: "Resmi Dönem",
+    newsTitle: "Son Duyurular",
+    newsSub: "Stüdyodan kısa güncellemeler, durum notları ve yeni proje tanıtımları.",
+    projectsTitle: "Yaklaşan Projeler",
+    projectsSub: "Poster, tür, durum, çıkış bilgisi ve kısa detaylar için stüdyo tarzı bir vitrin.",
+    galleryTitle: "Galeri",
+    gallerySub: "Resmi posterler, öne çıkan görseller ve gelecekteki çalışmalar.",
+    galleryOneTitle: "Ben İyiyim",
+    galleryOneText: "Gerilim / Meme projesi posteri ve tanıtım görseli.",
+    galleryTwoTitle: "Labirentin Kökeni",
+    galleryTwoText: "Gerilim / Bulmaca projesi posteri ve ana görsel.",
+    connectTitle: "Bağlantı",
+    connectSub: "Duyurular, ilerlemeler ve ekstra içerikler için resmi kanalları takip et.",
+    connectCardTitle: "Resmi Bağlantılar",
+    connectCardText: "Stüdyoyu resmi topluluk ve sosyal sayfalar üzerinden takip et.",
+    aboutTitle: "Bu Site Hakkında",
+    aboutText: "ISMAIL G EXTRA, ekstra proje duyuruları, poster paylaşımları ve gelecek güncellemeler için resmi merkezdir. Sayfa temiz, stüdyo tarzı bir marka vitrini olarak hazırlandı.",
+    about1: "GitHub Pages için tek dosyalık yayın yapısı.",
+    about2: "İngilizce / Türkçe dil değişimi.",
+    about3: "Profesyonel görseller ve akıcı hareket efektleri.",
+    about4: "Arka plan müziği yok; sadece kısa bir açılış sesi var.",
+    detailStatus: "Durum",
+    detailGenre: "Tür",
+    detailRelease: "Yayın",
+    detailAge: "Yaş Sınırı",
+    detailCreator: "Yapan",
+    detailStudio: "Yapım",
+    modalAction: "Detayları kapat",
+    modalBrowse: "Projeleri incele",
+    splashTitle: "Resmi Stüdyo Duyuruları",
+    splashText: "Ek proje duyuruları, posterler ve yaklaşan paylaşımlar tek bir yerde.",
+    splashNote: "Müzik yok. Sadece açılış sesi var.",
+    enterSite: "Siteye Gir",
+    soundReady: "Ses efekti hazır"
+  }
+};
+
+let currentLang = localStorage.getItem("igx-lang") || "en";
+let audioCtx = null;
+
+const modal = document.getElementById("modal");
+const modalPoster = document.getElementById("modalPoster");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalStatus = document.getElementById("modalStatus");
+const modalGenre = document.getElementById("modalGenre");
+const modalRelease = document.getElementById("modalRelease");
+const modalAge = document.getElementById("modalAge");
+const modalKicker = document.getElementById("modalKicker");
+const modalActionBtn = document.getElementById("modalActionBtn");
+const heroPoster = document.getElementById("heroPoster");
+const heroFallback = document.getElementById("heroFallback");
+const announcementGrid = document.getElementById("announcementGrid");
+const projectReel = document.getElementById("projectReel");
+const splash = document.getElementById("splash");
+
+function encodePath(path){
+  return encodeURI(path);
+}
+
+function getAudioContext(){
+  if (!audioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    audioCtx = new Ctx();
+  }
+  return audioCtx;
+}
+
+async function playOpenFx(){
+  try{
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    if (ctx.state === "suspended") {
+      await ctx.resume();
+    }
+
+    const master = ctx.createGain();
+    master.gain.value = 0.18;
+    master.connect(ctx.destination);
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = 1400;
+
+    const osc = ctx.createOscillator();
+    osc.type = "sawtooth";
+    osc.frequency.setValueAtTime(190, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(65, ctx.currentTime + 0.48);
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.55);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(master);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.6);
+  } catch (err) {
+    // silent fallback
+  }
+}
+
+async function playClickFx(){
+  try{
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    if (ctx.state === "suspended") {
+      await ctx.resume();
+    }
+
+    const master = ctx.createGain();
+    master.gain.value = 0.08;
+    master.connect(ctx.destination);
+
+    const osc = ctx.createOscillator();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(760, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(520, ctx.currentTime + 0.05);
+
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.16, ctx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.08);
+
+    osc.connect(gain);
+    gain.connect(master);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.09);
+  } catch (err) {
+    // silent fallback
+  }
+}
+
+function setLanguage(lang){
+  currentLang = lang;
+  localStorage.setItem("igx-lang", lang);
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === lang);
+  });
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (i18n[lang][key]) el.textContent = i18n[lang][key];
+  });
+
+  document.getElementById("brandSub").textContent = i18n[lang].heroKicker;
+  document.getElementById("splashTitle").innerHTML = `${i18n[lang].splashTitle}`;
+  document.getElementById("splashText").textContent = i18n[lang].splashText;
+  document.getElementById("splashNote").textContent = i18n[lang].splashNote;
+  document.getElementById("enterSiteBtn").textContent = i18n[lang].enterSite;
+  document.getElementById("soundPill").textContent = i18n[lang].soundReady;
+  modalActionBtn.textContent = i18n[lang].modalAction;
+
+  renderAnnouncements();
+  renderProjects();
+  renderHeroPoster();
+}
+
+function renderHeroPoster(){
+  const heroProject = projects[0];
+  heroPoster.src = encodePath(heroProject.poster);
+  heroPoster.alt = `${heroProject.title[currentLang]} poster`;
+
+  heroPoster.onerror = () => {
+    heroPoster.classList.add("hidden");
+    heroFallback.classList.remove("hidden");
+  };
+}
+
+function renderAnnouncements(){
+  announcementGrid.innerHTML = announcements.map((item, index) => {
+    const accentClass = item.accent === "blue" ? "blue" : item.accent === "green" ? "green" : "red";
+    const title = item.title[currentLang];
+    const text = item.text[currentLang];
+    return `
+      <article class="news-card" style="background:
+        linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.02)),
+        radial-gradient(circle at 20% 20%, ${item.accent === "blue" ? "rgba(77,124,255,.25)" : item.accent === "green" ? "rgba(54,211,153,.22)" : "rgba(255,59,77,.26)"}, transparent 42%),
+        rgba(255,255,255,.03);">
+        <div class="news-content">
+          <div class="news-chip">${index + 1}</div>
+          <h3>${title}</h3>
+          <p>${text}</p>
+          <div class="mini-meta">
+            <span class="${accentClass}">${currentLang === "en" ? "Studio" : "Stüdyo"}</span>
+            <span>${currentLang === "en" ? "Official" : "Resmi"}</span>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function renderProjects(){
+  projectReel.innerHTML = projects.map((project, index) => `
+    <article class="project-card" tabindex="0" data-project="${index}">
+      <div class="project-media">
+        <img src="${encodePath(project.poster)}" alt="${project.title[currentLang]} poster">
+        <div class="project-overlay">
+          <div class="badges">
+            <span class="badge red">${project.cardTag[currentLang]}</span>
+            <span class="badge blue">${project.status[currentLang]}</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-body">
+        <h3>${project.title[currentLang]}</h3>
+        <p>${project.description[currentLang]}</p>
+        <div class="project-meta">
+          <div class="meta-box">
+            <small>${currentLang === "en" ? "Genre" : "Tür"}</small>
+            <strong>${project.genre[currentLang]}</strong>
+          </div>
+          <div class="meta-box">
+            <small>${currentLang === "en" ? "Release" : "Yayın"}</small>
+            <strong>${project.release[currentLang]}</strong>
+          </div>
+          <div class="meta-box">
+            <small>${currentLang === "en" ? "Age" : "Yaş"}</small>
+            <strong>${project.age}</strong>
+          </div>
+          <div class="meta-box">
+            <small>${currentLang === "en" ? "Studio" : "Yapım"}</small>
+            <strong>ISMG YAPIM</strong>
+          </div>
+        </div>
+        <button class="project-btn" data-open="${index}" type="button">
+          ${currentLang === "en" ? "View details" : "Detayları gör"}
+        </button>
+      </div>
+    </article>
+  `).join("");
+
+  document.querySelectorAll("[data-open]").forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+      const idx = Number(e.currentTarget.dataset.open);
+      await playClickFx();
+      openModal(projects[idx]);
+    });
+  });
+
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("click", async (e) => {
+      if (e.target.closest(".project-btn")) return;
+      const idx = Number(card.dataset.project);
+      await playClickFx();
+      openModal(projects[idx]);
+    });
+
+    card.addEventListener("keydown", async (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const idx = Number(card.dataset.project);
+        await playClickFx();
+        openModal(projects[idx]);
+      }
+    });
+  });
+}
+
+function openModal(project){
+  modalPoster.src = encodePath(project.poster);
+  modalPoster.alt = `${project.title[currentLang]} poster`;
+  modalTitle.textContent = project.title[currentLang];
+  modalDescription.textContent = project.detail[currentLang];
+  modalStatus.textContent = project.status[currentLang];
+  modalGenre.textContent = project.genre[currentLang];
+  modalRelease.textContent = project.release[currentLang];
+  modalAge.textContent = project.age;
+  modalKicker.textContent = currentLang === "en" ? "Project Details" : "Proje Detayları";
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(){
+  modal.classList.add("hidden");
+  document.body.style.overflow = "";
+}
+
+function revealSections(){
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.16 });
+
+  document.querySelectorAll("[data-reveal]").forEach(el => io.observe(el));
+}
+
+const projects = [
+  {
+    id: "im-fine",
+    poster: "İyiyim serisi.png",
+    title: { en: "I'm Fine", tr: "Ben İyiyim" },
+    status: { en: "Coming Soon", tr: "Yakında" },
+    genre: { en: "Thriller / Meme", tr: "Gerilim / Meme" },
+    release: { en: "TBA", tr: "Tarih belirsiz" },
+    age: "15+",
+    cardTag: { en: "Featured", tr: "Öne Çıkan" },
+    description: {
+      en: "A thriller-meme series with an ever-growing power curve, shifting atmosphere, and hidden details in every episode and season.",
+      tr: "Her bölüm ve sezonda güçlerin arttığı, atmosferin değiştiği ve gizli detaylarla dolu bir gerilim / meme serisi."
+    },
+    detail: {
+      en: "Each episode uses a recurring line while the power scale rises, the atmosphere transforms, and hidden clues become more intense over time.",
+      tr: "Her bölüm aynı tekrar eden cümleyle ilerler; güçler artar, atmosfer değişir ve gizli detaylar zamanla yoğunlaşır."
+    }
+  },
+  {
+    id: "maze-origin",
+    poster: "LABİRENT KÖKENİ.png",
+    title: { en: "Maze Origin", tr: "Labirentin Kökeni" },
+    status: { en: "Coming Soon", tr: "Yakında" },
+    genre: { en: "Thriller / Puzzle", tr: "Gerilim / Bulmaca" },
+    release: { en: "2026", tr: "2026" },
+    age: "10+",
+    cardTag: { en: "New Project", tr: "Yeni Proje" },
+    description: {
+      en: "Cenk must find the key, escape the maze, and survive every level. The enemy gets faster, the hero gets faster, and the maze grows more dangerous.",
+      tr: "Cenk tek başına labirentten çıkış yolu arar. Her levelde anahtarı bulmalı, düşmandan kaçmalı ve zorluk artarken hayatta kalmalıdır."
+    },
+    detail: {
+      en: "Every level increases enemy speed, hero speed, and maze size. The core loop is puzzle-solving, survival, and escalating tension.",
+      tr: "Her levelde düşman hızı, ana karakter hızı ve labirent boyutu artar. Temel döngü bulmaca çözme, hayatta kalma ve artan gerilim üzerine kuruludur."
+    }
+  }
+];
+
+const announcements = [
+  {
+    title: { en: "Official Studio News", tr: "Resmi Stüdyo Duyuruları" },
+    text: {
+      en: "This page is the official hub for extra project updates, visual reveals, and release notes.",
+      tr: "Bu sayfa ekstra proje güncellemeleri, görsel paylaşımlar ve resmi duyurular için merkezdir."
+    },
+    accent: "red"
+  },
+  {
+    title: { en: "I'm Fine", tr: "Ben İyiyim" },
+    text: {
+      en: "A meme-driven thriller project with hidden details and a constantly rising atmosphere.",
+      tr: "Gizli detaylar, değişen atmosfer ve yükselen güç dengesiyle ilerleyen meme tabanlı gerilim projesi."
+    },
+    accent: "blue"
+  },
+  {
+    title: { en: "Maze Origin", tr: "Labirentin Kökeni" },
+    text: {
+      en: "A puzzle-thriller project where every level gets harder and the maze keeps evolving.",
+      tr: "Her levelin daha zor olduğu ve labirentin sürekli büyüdüğü bir bulmaca-gerilim projesi."
+    },
+    accent: "green"
+  }
+];
+
+/* init */
+document.addEventListener("DOMContentLoaded", () => {
+  revealSections();
+  setLanguage(currentLang);
+
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      await playClickFx();
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  document.getElementById("enterSiteBtn").addEventListener("click", async () => {
+    await playOpenFx();
+    splash.classList.add("dismiss");
+    setTimeout(() => splash.classList.add("hidden"), 520);
+  });
+
+  document.getElementById("closeModalBtn").addEventListener("click", async () => {
+    await playClickFx();
+    closeModal();
+  });
+
+  modalActionBtn.addEventListener("click", async () => {
+    await playClickFx();
+    closeModal();
+  });
+
+  modal.addEventListener("click", async (e) => {
+    if (e.target === modal) {
+      await playClickFx();
+      closeModal();
+    }
+  });
+
+  window.addEventListener("keydown", async (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      await playClickFx();
+      closeModal();
+    }
+  });
+
+  // first interaction elsewhere also enables sound on strict browsers
+  const unlock = async () => {
+    await playClickFx();
+    await playOpenFx();
+  };
+  window.addEventListener("pointerdown", unlock, { once:true });
+});
+</script>
+</body>
+</html>
