@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="ISMAIL G EXTRA — Official Studio News">
 <meta property="og:description" content="Official Studio News, extra project announcements, posters, and upcoming releases.">
-<meta property="og:image" content="LABİRENT KÖKENİ.png">
+<meta property="og:image" content="IsmailG-extra.png">
 
 <style>
 :root{
@@ -708,7 +708,7 @@ button{font:inherit}
 /* GALLERY */
 .gallery-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
 .gallery-card{
@@ -1044,7 +1044,7 @@ button{font:inherit}
         <div class="visual-stack">
           <div class="poster-frame">
             <div class="poster-pill" data-i18n="heroSpotlight">Featured Spotlight</div>
-            <img id="heroPoster" src="İyiyim serisi.png" alt="Featured project poster">
+            <img id="heroPoster" src="IsmailG-extra.png" alt="ISMAIL G EXTRA opening cover">
             <div class="poster-fallback hidden" id="heroFallback">
               <div>
                 <strong>ISMAIL G EXTRA</strong>
@@ -1113,7 +1113,15 @@ button{font:inherit}
     <div class="section-card">
       <div class="gallery-grid">
         <article class="gallery-card">
-          <img src="İyiyim serisi.png" alt="I'm Fine / Ben İyiyim poster">
+          <img src="IsmailG-extra.png" alt="ISMAIL G EXTRA official cover">
+          <div class="gallery-caption">
+            <h3>ISMAIL G EXTRA</h3>
+            <p>Official studio cover and opening visual.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card">
+          <img src="I'm Fine series.png" alt="I'm Fine poster">
           <div class="gallery-caption">
             <h3 data-i18n="galleryOneTitle">Ben İyiyim</h3>
             <p data-i18n="galleryOneText">Thriller / Meme project poster and promotional visual.</p>
@@ -1121,7 +1129,7 @@ button{font:inherit}
         </article>
 
         <article class="gallery-card">
-          <img src="LABİRENT KÖKENİ.png" alt="Maze Origin / Labirentin Kökeni poster">
+          <img src="MAZE ORIGIN.png" alt="Maze Origin poster">
           <div class="gallery-caption">
             <h3 data-i18n="galleryTwoTitle">Labirentin Kökeni</h3>
             <p data-i18n="galleryTwoText">Thriller / Puzzle project poster and key visual.</p>
@@ -1235,7 +1243,7 @@ button{font:inherit}
 const projects = [
   {
     id: "im-fine",
-    poster: "İyiyim serisi.png",
+    poster: "I'm Fine series.png",
     title: { en: "I'm Fine", tr: "Ben İyiyim" },
     status: { en: "Coming Soon", tr: "Yakında" },
     genre: { en: "Thriller / Meme", tr: "Gerilim / Meme" },
@@ -1253,7 +1261,7 @@ const projects = [
   },
   {
     id: "maze-origin",
-    poster: "LABİRENT KÖKENİ.png",
+    poster: "MAZE ORIGIN.png",
     title: { en: "Maze Origin", tr: "Labirentin Kökeni" },
     status: { en: "Coming Soon", tr: "Yakında" },
     genre: { en: "Thriller / Puzzle", tr: "Gerilim / Bulmaca" },
@@ -1265,8 +1273,8 @@ const projects = [
       tr: "Cenk tek başına labirentten çıkış yolu arar. Her levelde anahtarı bulmalı, düşmandan kaçmalı ve zorluk artarken hayatta kalmalıdır."
     },
     detail: {
-      en: "Each level increases enemy speed, hero speed, and maze size. The core loop is puzzle-solving, survival, and escalating tension.",
-      tr: "Her levelde düşman hızı, ana karakter hızı ve labirent boyutu artar. Temel döngü bulmaca çözme, hayatta kalma ve artan gerilim üzerine kuruludur."
+      en: "Each level increases enemy speed, hero speed, and maze size. The progression is built around puzzle-solving, action, and mystery.",
+      tr: "Her levelde düşman hızı, ana karakter hızı ve labirent boyutu artar. Oyun yapısı bulmaca, aksiyon ve gizem üzerine kuruludur."
     }
   }
 ];
@@ -1430,6 +1438,7 @@ const announcementGrid = document.getElementById("announcementGrid");
 const projectReel = document.getElementById("projectReel");
 const splash = document.getElementById("splash");
 const enterSiteBtn = document.getElementById("enterSiteBtn");
+const splashTitle = document.getElementById("splashTitle");
 
 function encodePath(path){
   return encodeURI(path);
@@ -1448,9 +1457,7 @@ async function playOpenFx(){
   try{
     const ctx = getAudioContext();
     if (!ctx) return;
-    if (ctx.state === "suspended") {
-      await ctx.resume();
-    }
+    if (ctx.state === "suspended") await ctx.resume();
 
     const master = ctx.createGain();
     master.gain.value = 0.18;
@@ -1483,9 +1490,7 @@ async function playClickFx(){
   try{
     const ctx = getAudioContext();
     if (!ctx) return;
-    if (ctx.state === "suspended") {
-      await ctx.resume();
-    }
+    if (ctx.state === "suspended") await ctx.resume();
 
     const master = ctx.createGain();
     master.gain.value = 0.08;
@@ -1523,8 +1528,11 @@ function setLanguage(lang){
     if (i18n[lang][key]) el.textContent = i18n[lang][key];
   });
 
+  splashTitle.innerHTML = lang === "en"
+    ? 'Official <span class="accent">Studio News</span>'
+    : 'Resmi <span class="accent">Stüdyo Duyuruları</span>';
+
   document.getElementById("brandSub").textContent = i18n[lang].heroKicker;
-  document.getElementById("splashTitle").innerHTML = `${i18n[lang].splashTitle}`;
   document.getElementById("splashText").textContent = i18n[lang].splashText;
   document.getElementById("splashNote").textContent = i18n[lang].splashNote;
   enterSiteBtn.textContent = i18n[lang].enterSite;
@@ -1538,8 +1546,8 @@ function setLanguage(lang){
 
 function renderHeroPoster(){
   const heroProject = projects[0];
-  heroPoster.src = encodePath(heroProject.poster);
-  heroPoster.alt = `${heroProject.title[currentLang]} poster`;
+  heroPoster.src = encodePath("IsmailG-extra.png");
+  heroPoster.alt = "ISMAIL G EXTRA opening cover";
 
   heroPoster.onerror = () => {
     heroPoster.classList.add("hidden");
