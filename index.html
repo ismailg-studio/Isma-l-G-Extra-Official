@@ -1671,12 +1671,12 @@ document.addEventListener("DOMContentLoaded", () => {
   setLanguage(currentLang);
 
   document.querySelectorAll(".lang-btn").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      await playClickFx();
-      setLanguage(btn.dataset.lang);
-    });
+  btn.addEventListener("click", async () => {
+    await playClickFx();
+    setLanguage(btn.dataset.lang);
   });
-
+});
+  
   enterSiteBtn.addEventListener("click", () => {
     splash.classList.add("dismiss");
     setTimeout(() => splash.classList.add("hidden"), 520);
